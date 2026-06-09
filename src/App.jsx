@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Home />
-      <img src={PentausSide} alt="Penta" className="fixed left-0 w-[25px] top-1/2 translate-y-1/2 z-30 lg:w-[40px]" />
+      <img src={PentausSide} alt="Penta" className="fixed left-0 w-[25px] top-1/2 -translate-y-1/2 z-30 lg:w-[40px]" />
       <CookieBanner />
     </>
   )
