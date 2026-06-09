@@ -350,22 +350,22 @@ const Home = () => {
             <Navbar />
             <div className="m-0 p-0 flex flex-col">
                 <div className="relative w-full">
-                    <video ref={videoRef} src={HomeVideo} autoPlay loop muted className="w-full h-[50vh] md:h-screen object-cover" />
+                    <video ref={videoRef} src={HomeVideo} autoPlay loop muted className="w-full h-[50vh] md:h-screen object-cover lg:h-[95vh]" />
 
-                    <button onClick={toggleMute} className="absolute bottom-16 right-6 z-30 bg-[#F06C30] text-white rounded-full p-3 shadow-lg">
+                    <button onClick={toggleMute} className="absolute bottom-14 right-6 z-30 bg-[#F06C30] text-white rounded-full p-4 shadow-lg">
                         {isMuted ? (
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" fill="#fff" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
                             </svg>
                         ) : (
-                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-9 h-9" fill="#fff" viewBox="0 0 24 24" stroke="currentColor">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072M12 6v12m-3.536-9.536a5 5 0 000 7.072M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
                             </svg>
                         )}
                     </button>
 
-                    <button onClick={scrollToAbout} className="absolute bottom-[0px] left-1/2 -translate-x-1/2 z-30 ">
+                    <button onClick={scrollToAbout} className="absolute bottom-[0px] left-1/2 -translate-x-1/2 z-30">
                         <img src={ScrollToBtn} />
                     </button>
                 </div>
