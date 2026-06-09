@@ -10,6 +10,7 @@ import ComprehensiveIcon from '../assets/settingwheel.png'
 import ExpertiseIcon from '../assets/badge.png'
 import FacilityIcon from '../assets/truck.png'
 import WorldMap from '../assets/pmap2.webp'
+import ScrollToBtn from '../assets/gotobtn.png'
 import AwardImage1 from '../assets/awards/emirates.png'
 import AwardImage2 from '../assets/awards/delta.png'
 import AwardImage3 from '../assets/awards/maskargo.png'
@@ -269,6 +270,17 @@ const Home = () => {
     const [experts, setExperts] = useState(0);
     const [awards, setAwards] = useState(0);
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isMuted, setIsMuted] = useState(true);
+    const videoRef = useRef(null);
+
+    const toggleMute = () => {
+        setIsMuted(!isMuted);
+        if (videoRef.current) videoRef.current.muted = !isMuted;
+    };
+
+    const scrollToAbout = () => {
+        document.getElementById('about-section')?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     const nextSlide = () => {
         setCurrentIndex((prev) =>
@@ -337,22 +349,45 @@ const Home = () => {
         <div>
             <Navbar />
             <div className="m-0 p-0 flex flex-col">
-                <video src={HomeVideo} autoPlay loop muted></video>
-                <div className="relative w-full h-full flex items-center justify-center">
-                    <img src={AirplaneSky} alt="Image" className="w-[500px] h-[500px] object-cover" />
-                    <img src={Blur} alt="Image" className="absolute top-0 left-0 w-full h-[800px] object-cover z-10" />
-                    <div className="absolute top-10 left-0 w-full h-full flex flex-col items-center z-20">
-                        <h3 className="text-lg font-bold z-20 text-[#F06C30] mb-3">ABOUT US</h3>
-                        <hr className='w-[140px] h-1 bg-[#F06C30] border-0 mb-2.5' />
-                        <h3 className="text-lg font-bold z-20 text-[#F06C30] mb-3.5">PENTA FRIEGHT</h3>
-                        <p className="w-[90%] text-lg text-center z-20 text-[#425462] mb-3.5">Penta Freight provides reliable <span className="font-[700]">logistics solutions</span>, specializing in temperature-sensitive shipments. We ensure safe, <span className="font-[700]">on-time delivery</span> worldwide. Trust us for seemless supply chain management.</p>
+                <div className="relative w-full">
+                    <video ref={videoRef} src={HomeVideo} autoPlay loop muted className="w-full h-[50vh] md:h-screen object-cover" />
+
+                    <button onClick={toggleMute} className="absolute bottom-16 right-6 z-30 bg-[#F06C30] text-white rounded-full p-3 shadow-lg">
+                        {isMuted ? (
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+                            </svg>
+                        ) : (
+                            <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.536 8.464a5 5 0 010 7.072M12 6v12m-3.536-9.536a5 5 0 000 7.072M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                            </svg>
+                        )}
+                    </button>
+
+                    <button onClick={scrollToAbout} className="absolute bottom-[0px] left-1/2 -translate-x-1/2 z-30 ">
+                        <img src={ScrollToBtn} />
+                    </button>
+                </div>
+
+                <div id="about-section" className="relative w-full overflow-hidden" style={{ minHeight: '500px' }}>
+                    <img src={AirplaneSky} alt="Image" className="w-full h-full object-cover absolute top-0 left-0 lg:pt-20" />
+                    <img src={Blur} alt="Image" className="absolute top-0 left-0 w-full h-full object-cover z-10 lg:h-[600px]" />
+                    <div className="relative z-20 w-full h-full flex flex-col md:flex-row items-center justify-center px-10 md:px-24 py-16 gap-10">
+                        <div className="flex flex-col items-start min-w-fit">
+                            <h3 className="text-xl md:text-2xl font-bold text-[#F06C30] mb-3">ABOUT US</h3>
+                            <hr className="w-[140px] h-1 bg-[#F06C30] border-0 mb-2.5" />
+                            <h3 className="text-xl md:text-2xl font-bold text-[#F06C30]">PENTA FREIGHT</h3>
+                        </div>
+                        <p className="text-base md:text-lg text-left text-[#425462] max-w-2xl">Penta Freight provides reliable <span className="font-[700]">logistics solutions</span>, specializing in temperature-sensitive shipments. We ensure safe, <span className="font-[700]">on-time delivery</span> worldwide. Trust us for seamless supply chain management.</p>
                     </div>
                 </div>
             </div>
-            <div className="relative w-full h-full flex flex-col items-center justify-center p-6 bg-[#425462] mb-4">
+
+            <div className="relative w-full h-full flex flex-col items-center justify-center p-6 bg-[#425462] mb-4 lg:p-12">
                 <img src={Lineseffect} alt="Image" className="absolute top-0 left-0 w-full h-full object-cover" />
                 <h3 className="text-3xl font-medium text-[#F06C30] mb-6">Our Philosophy</h3>
-                <p className="w-[90%] text-md text-center text-white pb-4">Customer satisfaction drives everything we do. Every shipment is a promise, and we deliver it with precision, care, and professionalism. With expert resources, we ensure safe, timely transport, building lasting partnerships founded on trust and excellence.</p>
+                <p className="w-[90%] text-md text-center text-white pb-4 lg:w-[65%] mb-4">Customer satisfaction drives everything we do. Every shipment is a promise, and we deliver it with precision, care, and professionalism. With expert resources, we ensure safe, timely transport, building lasting partnerships founded on trust and excellence.</p>
                 <button className="pt-2 px-8 pb-1.5 cursor-pointer text-white bg-[#F06C30] border-0 rounded-xl font-bold" >Read More</button>
             </div>
 
@@ -373,7 +408,6 @@ const Home = () => {
                                 backgroundSize: "cover",
                                 backgroundPosition: "center",
 
-                                // subtle stack scaling
                                 transform: `scale(${1 - index * 0.012})`,
                                 transformOrigin: "top center",
                             }}
