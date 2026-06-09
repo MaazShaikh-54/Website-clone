@@ -1,4 +1,4 @@
-// import './App.css'
+import './App.css'
 import Home from './pages/Home.jsx'
 import CookieBanner from './components/overlay/cookie-overlay.jsx';
 import PentausSide from './assets/pentauslogoside.png';

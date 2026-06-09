@@ -9,6 +9,7 @@ import Blur from '../assets/blureffect.png'
 import ComprehensiveIcon from '../assets/settingwheel.png'
 import ExpertiseIcon from '../assets/badge.png'
 import FacilityIcon from '../assets/truck.png'
+import WorldMap from '../assets/pmap2.webp'
 import AwardImage1 from '../assets/awards/emirates.png'
 import AwardImage2 from '../assets/awards/delta.png'
 import AwardImage3 from '../assets/awards/maskargo.png'
@@ -732,9 +733,10 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="relative w-full h-full flex flex-col items-center justify-center p-6 bg-[#425462]">
+            <div className="relative w-full flex flex-col items-center justify-center p-6 md:p-16 bg-[#425462]">
                 <img src={Lineseffect} alt="Image" className="absolute top-0 left-0 w-full h-full object-cover" />
-                <h3 className="text-2xl font-medium text-[#F06C30] mb-6">Our Global Footprint</h3>
+                <h3 className="text-2xl md:text-4xl font-medium text-[#F06C30] mb-8 z-10">Our Global Footprint</h3>
+                <img src={WorldMap} alt="World Map" className="w-full max-w-5xl z-10 object-contain" />
             </div>
             <Footer />
         </div>
