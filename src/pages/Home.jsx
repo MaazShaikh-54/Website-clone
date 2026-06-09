@@ -285,6 +285,10 @@ const Home = () => {
     const achievementRef = useRef(null);
 
     useEffect(() => {
+        document.documentElement.style.scrollBehavior = 'smooth'
+    }, [])
+
+    useEffect(() => {
         const observer = new IntersectionObserver(
             ([entry]) => {
                 if (entry.isIntersecting) {
@@ -714,7 +718,7 @@ const Home = () => {
                                 <img
                                     src={award.image}
                                     alt={`award-${index}`}
-                                    className="w-28 h-28 object-contain mb-4"
+                                    className="w-36 h-36 object-contain"
                                 />
 
                                 <div className="text-center space-y-1">
