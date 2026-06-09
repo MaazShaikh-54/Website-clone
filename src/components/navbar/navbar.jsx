@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import './navbar.css';
 import PentaKUHL from '../../assets/pentaKuhl.png';
 import { ChevronRight, ChevronDown } from 'lucide-react';
@@ -7,6 +7,19 @@ const Navbar = () => {
     const [isMenuOpen, setMenuOpen] = useState(false);
     const [servicesOpen, setServicesOpen] = useState(false);
     const [pentaOpen, setPentaOpen] = useState(false);
+    const [isVisible, setIsVisible] = useState(true);
+    const lastScrollY = useRef(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+            setIsVisible(currentScrollY < lastScrollY.current || currentScrollY < 10);
+            lastScrollY.current = currentScrollY;
+        };
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     const pathname = window.location.pathname;
 
     const toggleMenu = () => {
@@ -19,7 +32,7 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="block">
+            <nav className={`block sticky top-0 bg-white z-40 transition-transform duration-300 ${isVisible ? 'translate-y-0' : '-translate-y-full'}`}>
                 <div className="flex md:hidden items-center justify-between px-6 py-3">
                     <button className="pt-2 px-3 pb-1.5 cursor-pointer text-white bg-[#F06C30] border-0 rounded-xl font-bold">Contact</button>
                     <div className="flex flex-col gap-1 cursor-pointer" onClick={toggleMenu}>
