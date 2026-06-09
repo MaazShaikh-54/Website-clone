@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import './Home.css'
+import './home.css'
 import Navbar from '../components/Navbar/navbar.jsx'
 import Footer from '../components/Footer/footer.jsx'
 import HomeVideo from '../assets/homevideo.mp4'
