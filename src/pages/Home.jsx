@@ -332,12 +332,12 @@ const Home = () => {
     return (
         <div>
             <Navbar />
-            <div className="m-0 p-0 flex flex-col h-screen">
+            <div className="m-0 p-0 flex flex-col">
                 <video src={HomeVideo} autoPlay loop muted></video>
                 <div className="relative w-full h-full flex items-center justify-center">
-                    <img src={AirplaneSky} alt="Image" className="w-[500px] h-[400px] object-cover" />
-                    <img src={Blur} alt="Image" className="absolute top-0 left-0 w-full h-[700px] object-cover z-10" />
-                    <div className="absolute top-0 left-0 w-full h-full flex flex-col items-center justify-center z-20">
+                    <img src={AirplaneSky} alt="Image" className="w-[500px] h-[500px] object-cover" />
+                    <img src={Blur} alt="Image" className="absolute top-0 left-0 w-full h-[800px] object-cover z-10" />
+                    <div className="absolute top-10 left-0 w-full h-full flex flex-col items-center z-20">
                         <h3 className="text-lg font-bold z-20 text-[#F06C30] mb-3">ABOUT US</h3>
                         <hr className='w-[140px] h-1 bg-[#F06C30] border-0 mb-2.5' />
                         <h3 className="text-lg font-bold z-20 text-[#F06C30] mb-3.5">PENTA FRIEGHT</h3>
@@ -345,7 +345,7 @@ const Home = () => {
                     </div>
                 </div>
             </div>
-            <div className="relative w-full h-full flex flex-col items-center justify-center p-6 bg-[#425462]">
+            <div className="relative w-full h-full flex flex-col items-center justify-center p-6 bg-[#425462] mb-4">
                 <img src={Lineseffect} alt="Image" className="absolute top-0 left-0 w-full h-full object-cover" />
                 <h3 className="text-3xl font-medium text-[#F06C30] mb-6">Our Philosophy</h3>
                 <p className="w-[90%] text-md text-center text-white pb-4">Customer satisfaction drives everything we do. Every shipment is a promise, and we deliver it with precision, care, and professionalism. With expert resources, we ensure safe, timely transport, building lasting partnerships founded on trust and excellence.</p>
