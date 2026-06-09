@@ -392,65 +392,66 @@ const Home = () => {
             </div>
 
             <div className="relative px-4 lg:px-10">
+                <div className="mb-14">
+                    <div className="flex items-center gap-0">
+                        <span className="w-1.5 h-1.5 bg-[#000000] rounded-full mr-2"></span>
+                        <button className="px-6 py-2 border border-gray-300 rounded-full text-sm bg-white">
+                            Services
+                        </button>
+                    </div>
+                    <div className='lg:flex lg:justify-between lg:justify-center'>
+                        <h2 className="mt-6 text-2xl lg:text-5xl font-medium leading-tight mb-2">
+                            Seamless Soluions for <span className="text-[#808080]">Every Logistics Needs.</span>
+                        </h2>
+                        <p>Tailored logistics solutions for timely, cost-effective deliveries across air, sea, and multimodal transport.</p>
+                    </div>
+                </div>
                 {servicesData.map((service, index) => (
-                    <div
-                        key={index}
-                        className="sticky mb-10"
-                        style={{
-                            top: `${20 + index * 18}px`,
-                            zIndex: index + 1,
-                        }}
-                    >
-                        <div
-                            className="relative h-[750px] rounded-[32px] overflow-hidden shadow-2xl transition-all duration-500"
-                            style={{
-                                backgroundImage: `url(${service.image})`,
-                                backgroundSize: "cover",
-                                backgroundPosition: "center",
+                    <div key={index} className="sticky mb-10" style={{ top: `${20 + index * 18}px`, zIndex: index + 1 }}>
+                        <div className="relative rounded-[32px] overflow-hidden shadow-2xl transition-all duration-500"
+                            style={{ transform: `scale(${1 - index * 0.012})`, transformOrigin: "top center" }}>
 
-                                transform: `scale(${1 - index * 0.012})`,
-                                transformOrigin: "top center",
-                            }}
-                        >
-                            <div className="absolute inset-0 bg-black/50" />
-
-                            <div className="relative z-10 h-full flex flex-col p-8 lg:p-14">
-
-                                <div>
-                                    <h3 className="text-2xl lg:text-5xl font-semibold text-white mb-6">
-                                        {service.title}
-                                    </h3>
-
-                                    <div className="space-y-2 max-w-3xl mb-4">
+                            <div className="hidden md:flex flex-row h-[500px]">
+                                <div className="w-1/2 flex flex-col justify-center p-14 bg-white">
+                                    <h3 className="text-4xl font-semibold text-black mb-6">{service.title}</h3>
+                                    <div className="space-y-2 mb-6">
                                         {service.points.map((point, i) => (
-                                            <p
-                                                key={i}
-                                                className="text-white/90 text-md"
-                                            >
-                                                {point}
-                                            </p>
+                                            <p key={i} className="text-gray-700 text-md">{point}</p>
                                         ))}
                                     </div>
-                                </div>
-
-                                <div className="mt-auto">
                                     <div className="flex flex-wrap gap-2 mb-8">
                                         {service.chips.map((chip, i) => (
-                                            <span
-                                                key={i}
-                                                className="px-3 py-2 rounded-xl bg-transparent border border-white text-white"
-                                            >
-                                                {chip}
-                                            </span>
+                                            <span key={i} className="px-3 py-2 rounded-xl border border-gray-400 text-gray-700">{chip}</span>
                                         ))}
                                     </div>
-
-                                    <button className="px-8 py-3 bg-[#F06C30] rounded-xl text-white font-medium">
-                                        Read More
-                                    </button>
+                                    <button className="px-8 py-3 bg-[#F06C30] rounded-xl text-white font-medium w-fit">Read More</button>
                                 </div>
-
+                                <div className="w-1/2 h-full overflow-hidden">
+                                    <img src={service.image} alt={service.title} className="w-full h-full object-cover object-center" />
+                                </div>
                             </div>
+
+                            <div className="md:hidden relative h-[750px]"
+                                style={{ backgroundImage: `url(${service.image})`, backgroundSize: "cover", backgroundPosition: "center" }}>
+                                <div className="absolute inset-0 bg-black/50" />
+                                <div className="relative z-10 h-full flex flex-col p-8">
+                                    <h3 className="text-2xl font-semibold text-white mb-6">{service.title}</h3>
+                                    <div className="space-y-2 mb-4">
+                                        {service.points.map((point, i) => (
+                                            <p key={i} className="text-white/90 text-md">{point}</p>
+                                        ))}
+                                    </div>
+                                    <div className="mt-auto">
+                                        <div className="flex flex-wrap gap-2 mb-8">
+                                            {service.chips.map((chip, i) => (
+                                                <span key={i} className="px-3 py-2 rounded-xl border border-white text-white">{chip}</span>
+                                            ))}
+                                        </div>
+                                        <button className="px-8 py-3 bg-[#F06C30] rounded-xl text-white font-medium">Read More</button>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 ))}
@@ -664,7 +665,7 @@ const Home = () => {
                                             <img
                                                 src={review.image}
                                                 alt={review.name}
-                                                className="w-auto h-30 object-contain mb-1"
+                                                className="w-auto h-30 object-contain mb-1 lg:h-[auto] lg:w-50 lg:mb-5"
                                             />
 
                                             <h3 className="text-lg font-semibold text-[#425462]">
@@ -707,7 +708,7 @@ const Home = () => {
                 </div>
             </div>
 
-            <div className="relative w-full h-full flex flex-col items-center justify-center px-0 py-6 bg-[#425462]">
+            <div className="relative w-full h-full flex flex-col items-center justify-center px-0 py-6 bg-[#425462] lg:py-16">
                 <img src={Lineseffect} alt="Image" className="absolute top-0 left-0 w-full h-full object-cover" />
                 <h3 className="text-3xl font-medium text-[#F06C30] mb-6">Certifications</h3>
                 <p className="w-[90%] text-md text-center text-white pb-4">Certified excellence, ensuring compliance, quality, and global logistics reliability.</p>
